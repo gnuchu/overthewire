@@ -1,0 +1,18 @@
+bandit8@bandit.labs.overthewire.org -p 2220
+
+
+#!/bin/bash
+
+myname=bandit23
+mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+
+echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
+
+cat /etc/bandit_pass/$myname > /tmp/$mytarget
+
+ssh bandit26@bandit8@bandit.labs.overthewire.org -p 2220 -i bandit26.sshkey
+
+bandit26:x:11026:11026:bandit level 26:/home/bandit26:/usr/bin/showtext
+
+
+
